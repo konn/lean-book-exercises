@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    "leanprover.lean4",
+    "Swellaby.workspace-config-plus",
+    "usernamehw.errorlens",
+    "EditorConfig.EditorConfig"
+  ]
+}
