@@ -51,8 +51,7 @@ example : P → P := by
 
 example (P: Prop) : ¬ (P ↔ ¬P) := by
   intro h
-  have hpnp : P → ¬ P := h.mp
-  have hnpp : ¬ P → P := h.mpr
+  obtain ⟨hpnp, hnpp⟩ := h
   have hnp: ¬ P := by
     intro hp
     apply hpnp hp
