@@ -31,7 +31,8 @@ section
     `(tactic| simp? only [notation_simp, $args,*] $[at $location]?)
 end
 
-theorem MyNat.lt_irreflex (n: MyNat) : ¬ (n < n) := by
+@[simp]
+theorem MyNat.lt_irrefl (n: MyNat) : ¬ (n < n) := by
   notation_simp at *
   intro h
   rw [MyNat.le_iff_add] at h
@@ -46,5 +47,5 @@ theorem MyNat.lt_trans {a b c: MyNat} (hab: a < b) (hbc: b < c) : a < c := calc
   _     ≤ c     := hbc
 
 example (a b: MyNat) (h1: a < b) (h2: b < a): False := by
-  suffices a < a from by simp [MyNat.lt_irreflex] at *
+  suffices a < a from by simp [MyNat.lt_irrefl] at *
   exact MyNat.lt_trans h1 h2
